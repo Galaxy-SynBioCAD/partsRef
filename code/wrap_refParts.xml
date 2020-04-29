@@ -5,7 +5,7 @@
 	  <regex match="ERROR:" level="error" />
   </stdio>
   <command detect_errors="exit_code"><![CDATA[
-		'$__tool_directory__/tool_partsRef.py' inputs.json '$output' 
+		'$__tool_directory__/tool_refParts.py' inputs.json '$output' 
   ]]></command>
 	<configfiles>
 		<inputs name="inputs" filename="inputs.json" />
@@ -28,43 +28,63 @@
   <tests>
     <test>
       <repeat name="part">
-        <param name="name" value="PlacUV5">
-        <param name="type" value="promoter">
-        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_K1847014/1">
-      <repeat>
+        <param name="name" value="PlacUV5"/>
+        <param name="type" value="promoter"/>
+        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_K1847014/1"/>
+      </repeat>
       <repeat name="part">
-        <param name="name" value="Ptrc">
-        <param name="type" value="promoter">
-        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_J56012/1">
-      <repeat>
+        <param name="name" value="Ptrc"/>
+        <param name="type" value="promoter"/>
+        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_J56012/1"/>
+      </repeat>
       <repeat name="part">
-        <param name="name" value="BBR1">
-        <param name="type" value="origin">
-        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_I50041/1">
-      <repeat>
+        <param name="name" value="BBR1"/>
+        <param name="type" value="origin"/>
+        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_I50041/1"/>
+      </repeat>
       <repeat name="part">
-        <param name="name" value="p15A">
-        <param name="type" value="origin">
-        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_I50032/1">
-      <repeat>
+        <param name="name" value="p15A"/>
+        <param name="type" value="origin"/>
+        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_I50032/1"/>
+      </repeat>
       <repeat name="part">
-        <param name="name" value="ColE1">
-        <param name="type" value="origin">
-        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_J64101/1">
-      <repeat>
+        <param name="name" value="ColE1"/>
+        <param name="type" value="origin"/>
+        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_J64101/1"/>
+      </repeat>
       <repeat name="part">
-        <param name="name" value="res1">
-        <param name="type" value="resistance">
-        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_I13800/1">
-      <repeat>
+        <param name="name" value="res1"/>
+        <param name="type" value="resistance"/>
+        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_I13800/1"/>
+      </repeat>
       <repeat name="part">
-        <param name="name" value="Ter">
-        <param name="type" value="terminator">
-        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_B1006/1">
-      <repeat>
+        <param name="name" value="Ter"/>
+        <param name="type" value="terminator"/>
+        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_B1006/1"/>
+      </repeat>
     </test>
   </tests>
   <help>
-    Generate the genetic parts reference CSV file compatible with OptDoE
+    Generate the genetic parts reference CSV file compatible with OptDoE.
+
+    If left empty, the default is the following:
+
+    +---------+------------+--------------------------------------------------+
+    | Name    | Type       | SynBioHub                                        |
+    +=========+============+==================================================+
+    | PlacUV5 | Promoter   | https://synbiohub.org/public/igem/BBa_K1847014/1 |
+    +---------+------------+--------------------------------------------------+
+    | Ptrc    | Promoter   | https://synbiohub.org/public/igem/BBa_J56012/1   |
+    +---------+------------+--------------------------------------------------+
+    | BBR1    | Origin     | https://synbiohub.org/public/igem/BBa_I50041/1   |
+    +---------+------------+--------------------------------------------------+
+    | p15A    | Origin     | https://synbiohub.org/public/igem/BBa_I50032/1   |
+    +---------+------------+--------------------------------------------------+
+    | ColE1   | Origin     | https://synbiohub.org/public/igem/BBa_J64101/1   |
+    +---------+------------+--------------------------------------------------+
+    | res1    | Resistance | https://synbiohub.org/public/igem/BBa_I13800/1   |
+    +---------+------------+--------------------------------------------------+
+    | Ter     | Terminator | https://synbiohub.org/public/igem/BBa_B1006/1    |
+    +---------+------------+--------------------------------------------------+
   </help>
 </tool>
