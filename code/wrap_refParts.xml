@@ -1,0 +1,70 @@
+<tool id="partsRef" name="OptDoE Parts Reference Generator" version="0.1">
+  <description>Generate the genetic parts reference CSV file compatible with OptDoE</description>
+  <stdio>
+    <regex match="WARNING:" level="warning" />
+	  <regex match="ERROR:" level="error" />
+  </stdio>
+  <command detect_errors="exit_code"><![CDATA[
+		'$__tool_directory__/tool_partsRef.py' inputs.json '$output' 
+  ]]></command>
+	<configfiles>
+		<inputs name="inputs" filename="inputs.json" />
+	</configfiles>
+  <inputs>
+    <repeat name="part" title="Genetic Parts">
+		  <param name="name" type="text" label="Name"/>
+      <param name="type" type="select" label="Type">
+        <option value="promoter" selected="True">Promoter</option>
+        <option value="origin">Origin of replication</option>
+        <option value="resistance">Resistance</option>
+        <option value="terminator">Terminator</option>
+      </param>
+		  <param name="synbiohub" type="text" label="SynBioHub Address"/>
+    </repeat>
+  </inputs>
+  <outputs>
+    <data name="output" format="csv" label="refParts"/>
+  </outputs>
+  <tests>
+    <test>
+      <repeat name="part">
+        <param name="name" value="PlacUV5">
+        <param name="type" value="promoter">
+        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_K1847014/1">
+      <repeat>
+      <repeat name="part">
+        <param name="name" value="Ptrc">
+        <param name="type" value="promoter">
+        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_J56012/1">
+      <repeat>
+      <repeat name="part">
+        <param name="name" value="BBR1">
+        <param name="type" value="origin">
+        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_I50041/1">
+      <repeat>
+      <repeat name="part">
+        <param name="name" value="p15A">
+        <param name="type" value="origin">
+        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_I50032/1">
+      <repeat>
+      <repeat name="part">
+        <param name="name" value="ColE1">
+        <param name="type" value="origin">
+        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_J64101/1">
+      <repeat>
+      <repeat name="part">
+        <param name="name" value="res1">
+        <param name="type" value="resistance">
+        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_I13800/1">
+      <repeat>
+      <repeat name="part">
+        <param name="name" value="Ter">
+        <param name="type" value="terminator">
+        <param name="synbiohub" value="https://synbiohub.org/public/igem/BBa_B1006/1">
+      <repeat>
+    </test>
+  </tests>
+  <help>
+    Generate the genetic parts reference CSV file compatible with OptDoE
+  </help>
+</tool>
