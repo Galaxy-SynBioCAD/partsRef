@@ -5,21 +5,45 @@
 	  <regex match="ERROR:" level="error" />
   </stdio>
   <command detect_errors="exit_code"><![CDATA[
-		'$__tool_directory__/tool_refParts.py' inputs.json '$output' 
+	  python '$refParts' '$inputs' $output
   ]]></command>
 	<configfiles>
 		<inputs name="inputs" filename="inputs.json" />
+		<configfile name="refParts"><![CDATA[
+import sys
+import json
+import logging
+import csv
+import shutil
+
+default_parts = {'part': [{'synbiohub': 'https://synbiohub.org/public/igem/BBa_K1847014/1', 'type': 'promoter', 'name': 'PlacUV5'}, {'synbiohub': 'https://synbiohub.org/public/igem/BBa_J56012/1', 'type': 'promoter', 'name': 'Ptrc'}, {'synbiohub': 'https://synbiohub.org/public/igem/BBa_I50041/1', 'type': 'origin', 'name': 'BBR1'}, {'synbiohub': 'https://synbiohub.org/public/igem/BBa_I50032/1', 'type': 'origin', 'name': 'p15A'}, {'synbiohub': 'https://synbiohub.org/public/igem/BBa_J64101/1', 'type': 'origin', 'name': 'ColE1'}, {'synbiohub': 'https://synbiohub.org/public/igem/BBa_I13800/1', 'type': 'resistance', 'name': 'res1'}, {'synbiohub': 'https://synbiohub.org/public/igem/BBa_B1006/1', 'type': 'terminator', 'name': 'Ter'}]}
+
+input_json_path = sys.argv[1]
+output_path = sys.argv[2]
+with open(input_json_path, 'r') as f:
+ try:
+  input_dict = json.load(f)
+ except json.decoder.JSONDecodeError:
+  input_dict = {}
+ if not input_dict or input_dict=={'part': []}:
+  input_dict = default_parts
+ with open(output_path, 'w') as infi:
+  csvfi = csv.writer(infi, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+  csvfi.writerow(['Name', 'Type', 'Part'])
+  for part in input_dict['part']:
+   csvfi.writerow([part['name'], part['type'], part['synbiohub']])		
+		]]></configfile>
 	</configfiles>
   <inputs>
     <repeat name="part" title="Genetic Parts">
-		  <param name="name" type="text" label="Name"/>
+      <param name="name" type="text" label="Name"/>
       <param name="type" type="select" label="Type">
         <option value="promoter" selected="True">Promoter</option>
         <option value="origin">Origin of replication</option>
         <option value="resistance">Resistance</option>
         <option value="terminator">Terminator</option>
       </param>
-		  <param name="synbiohub" type="text" label="SynBioHub Address"/>
+      <param name="synbiohub" type="text" label="SynBioHub Address"/>
     </repeat>
   </inputs>
   <outputs>
