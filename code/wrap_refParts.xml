@@ -88,8 +88,11 @@ with open(input_json_path, 'r') as f:
       </repeat>
     </test>
   </tests>
-  <help>
-    Generate the genetic parts reference CSV file compatible with OptDoE.
+  <help><![CDATA[
+OptDoE Parts Reference Generator
+==================================
+
+This tool generates a CSV file that contains a list of links to the DNA registry SynBioHub for the desired vector backbones, resistance cassette, and promoters. Generate the genetic parts reference CSV file compatible with OptDoE.
 
     If left empty, the default is the following:
 
@@ -110,5 +113,27 @@ with open(input_json_path, 'r') as f:
     +---------+------------+--------------------------------------------------+
     | Ter     | Terminator | https://synbiohub.org/public/igem/BBa_B1006/1    |
     +---------+------------+--------------------------------------------------+
-  </help>
+
+Version
+----------
+
+0.1
+
+Authors
+-------
+
+* **Melchior du Lac**
+
+License
+-------
+
+`MIT <https://raw.githubusercontent.com/Galaxy-SynBioCAD/rpMergeSBML/standalone-dev/LICENSE>`_
+
+Acknowledgments
+---------------
+
+* Thomas Duigou
+* Joan Hérisson
+
+]]></help>
 </tool>
