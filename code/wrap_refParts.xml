@@ -120,7 +120,7 @@ Input
 Required:
 
 
-* **-name*\ : (string) Name of the genetic part
+* **-name**\ : (string) Name of the genetic part
 * **-type**\ : (string) Type of genetic part (valid options: promoter, origin, resitance)
 * **-synnbiohub**\ : (string) URL to the SynBioHub entry of that part
 
