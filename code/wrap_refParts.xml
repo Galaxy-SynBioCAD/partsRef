@@ -94,7 +94,7 @@ OptDoE Parts Reference Generator
 
 This tool generates a CSV file that contains a list of links to the DNA registry SynBioHub for the desired vector backbones, resistance cassette, and promoters. Generate the genetic parts reference CSV file compatible with OptDoE.
 
-    If left empty, the default is the following:
+NOTE: If left empty, the default is the following:
 
     +---------+------------+--------------------------------------------------+
     | Name    | Type       | SynBioHub                                        |
@@ -113,6 +113,21 @@ This tool generates a CSV file that contains a list of links to the DNA registry
     +---------+------------+--------------------------------------------------+
     | Ter     | Terminator | https://synbiohub.org/public/igem/BBa_B1006/1    |
     +---------+------------+--------------------------------------------------+
+
+Input
+-----
+
+Required:
+
+
+* **-name*\ : (string) Name of the genetic part
+* **-type**\ : (string) Type of genetic part (valid options: promoter, origin, resitance)
+* **-synnbiohub**\ : (string) URL to the SynBioHub entry of that part
+
+Output
+------
+
+* **-output**\ : (string) Path to the output CSV file
 
 Version
 ----------
