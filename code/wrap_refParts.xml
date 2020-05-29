@@ -122,12 +122,17 @@ Required:
 
 * **-name**\ : (string) Name of the genetic part
 * **-type**\ : (string) Type of genetic part (valid options: promoter, origin, resitance)
-* **-synnbiohub**\ : (string) URL to the SynBioHub entry of that part
+* **-synbiohub**\ : (string) URL to the SynBioHub entry of that part
 
 Output
 ------
 
 * **-output**\ : (string) Path to the output CSV file
+
+Project Links
+---------------------
+
+* `GitHub <https://github.com/Galaxy-SynBioCAD/partsRef>`_
 
 Version
 ----------
@@ -142,7 +147,7 @@ Authors
 License
 -------
 
-`MIT <https://raw.githubusercontent.com/Galaxy-SynBioCAD/rpMergeSBML/standalone-dev/LICENSE>`_
+`MIT <https://raw.githubusercontent.com/Galaxy-SynBioCAD/partsRef/master/LICENSE>`_
 
 Acknowledgments
 ---------------
